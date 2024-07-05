@@ -1,9 +1,9 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import {
   END_TILE_CONFIGURATION,
   START_TILE_CONFIGURATION,
 } from "../utils/constants";
-import { createGrid } from "../utils/helper";
+import { createGrid } from "../utils/helpers";
 import { AlgorithmType, GridType, MazeType } from "../utils/types";
 
 export interface PathfindingContextInterface {
