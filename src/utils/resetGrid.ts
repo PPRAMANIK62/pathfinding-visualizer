@@ -1,11 +1,11 @@
 import {
   END_TILE_CONFIGURATION,
-  isEqual,
   MAX_COLS,
   MAX_ROWS,
   START_TILE_CONFIGURATION,
   TILE_STYLE,
 } from "./constants";
+import { isEqual } from "./helpers";
 import { GridType, TileType } from "./types";
 
 export const resetGrid = ({

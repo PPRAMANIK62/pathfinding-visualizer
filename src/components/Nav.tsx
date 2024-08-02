@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { usePathfinding } from "../hooks/usePathfinding";
+import { useSpeed } from "../hooks/useSpeed";
 import { useTile } from "../hooks/useTile";
 import { MAZES } from "../utils/constants";
 import { resetGrid } from "../utils/resetGrid";
+import { runMazeALgorithm } from "../utils/runMazeAlgorithm";
 import { MazeType } from "../utils/types";
 import Select from "./Select";
 
 const Nav = () => {
   const [isDisabled, setIsDisabled] = useState(false);
-  const { maze, setMaze, grid } = usePathfinding();
+  const { maze, setMaze, grid, setGrid, setIsGraphVisualized } = usePathfinding();
   const { startTile, endTile } = useTile();
+  const { speed } = useSpeed();
 
   const handleGenerateMaze = (maze: MazeType) => {
     if (maze === "NONE") {
@@ -20,7 +23,19 @@ const Nav = () => {
 
     setMaze(maze);
     setIsDisabled(true);
-    // run maze algorithm
+    // binary tree maze algorithm
+    runMazeALgorithm({
+      maze,
+      grid,
+      startTile,
+      endTile,
+      setIsDisabled,
+      speed,
+    });
+
+    const newgrid = grid.slice();
+    setGrid(newgrid);
+    setIsGraphVisualized(false);
   };
 
   return (

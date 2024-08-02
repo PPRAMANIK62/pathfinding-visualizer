@@ -1,4 +1,4 @@
-import { MazeSelectType, TileType } from "./types";
+import { MazeSelectType, SpeedSelectType } from "./types";
 
 export const MAX_ROWS = 39;
 export const MAX_COLS = 49;
@@ -41,6 +41,8 @@ export const MAZES: MazeSelectType[] = [
   { name: "Recursive Division", value: "RECURSIVE_DIVISION" },
 ];
 
-export const isEqual = (a: TileType, b: TileType) => {
-  return a.row === b.row && a.col === b.col;
-};
+export const SPEEDS: SpeedSelectType[] = [
+  { name: "Slow", value: 2 },
+  { name: "Normal", value: 1 },
+  { name: "Fast", value: 0.5 },
+];
